@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Proposer un site</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{font-family:'Segoe UI',Arial,sans-serif;background:#111827;color:white;padding:50px;text-align:center;}
+input,button{padding:10px;margin:10px;border-radius:8px;border:none;font-size:16px;}
+input{width:250px;}
+button{background:#ffeb3b;color:#111;font-weight:bold;cursor:pointer;transition:.3s;}
+button:hover{background:#ffd600;}
+</style>
+</head>
+<body>
+<h1>Proposer un site de jeu 🎮</h1>
+<p>Les administrateurs valideront avant publication</p>
+<form id="proposalForm">
+<input type="text" id="name" placeholder="Nom du site" required><br>
+<input type="url" id="url" placeholder="Lien du site" required><br>
+<button type="submit">Soumettre</button>
+</form>
+<p id="message"></p>
+
+<script>
+// Comme on ne peut pas écrire sur GitHub Pages, on simule la soumission
+document.getElementById('proposalForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const url = document.getElementById('url').value;
+
+  // Ici normalement tu enverrais les données sur un serveur
+  console.log({name, url});
+
+  document.getElementById('message').textContent = "Merci ! Votre proposition a été reçue ✅";
+  this.reset();
+});
+</script>
+</body>
+</html>
